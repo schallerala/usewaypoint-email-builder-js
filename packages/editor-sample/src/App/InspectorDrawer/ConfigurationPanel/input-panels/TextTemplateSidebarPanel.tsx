@@ -8,11 +8,11 @@ import BooleanInput from './helpers/inputs/BooleanInput';
 import TextInput from './helpers/inputs/TextInput';
 import MultiStylePropertyPanel from './helpers/style-inputs/MultiStylePropertyPanel';
 
-type TextSidebarPanelProps = {
+type TextTemplateSidebarPanelProps = {
   data: TextProps;
   setData: (v: TextProps) => void;
 };
-export default function TextSidebarPanel({ data, setData }: TextSidebarPanelProps) {
+export function TextTemplateSidebarPanel({ data, setData }: TextTemplateSidebarPanelProps) {
   const [, setErrors] = useState<ZodError | null>(null);
 
   const updateData = (d: unknown) => {
@@ -33,6 +33,21 @@ export default function TextSidebarPanel({ data, setData }: TextSidebarPanelProp
         defaultValue={data.props?.text ?? ''}
         onChange={(text) => updateData({ ...data, props: { ...data.props, text } })}
       />
+      <p style={{ marginTop: '8px' }}>
+        <i>
+          You can use the template syntax of{' '}
+          <a href="https://liquidjs.com/index.html" target="_blank">
+            Liquid.js
+          </a>
+          .
+          <br />
+          You can find{' '}
+          <a href="https://liquidjs.com/filters/overview.html" target="_blank">
+            built-in filters/functions here
+          </a>
+          .
+        </i>
+      </p>
       <BooleanInput
         label="Markdown"
         defaultValue={data.props?.markdown ?? false}

@@ -30,6 +30,7 @@
     "@usewaypoint/block-image": "workspace:*",
     "@usewaypoint/block-spacer": "workspace:*",
     "@usewaypoint/block-text": "workspace:*",
+    "@usewaypoint/block-text-template": "workspace:*",
     "@usewaypoint/document-core": "workspace:*"
   },
   "devDependencies": {

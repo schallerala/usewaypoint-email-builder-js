@@ -3,6 +3,7 @@ import React from 'react';
 import {
   AccountCircleOutlined,
   Crop32Outlined,
+  GeneratingTokensOutlined,
   HMobiledataOutlined,
   HorizontalRuleOutlined,
   HtmlOutlined,
@@ -48,7 +49,20 @@ export const BUTTONS: TButtonProps[] = [
       },
     }),
   },
-
+  {
+    label: 'Text Template',
+    icon: <GeneratingTokensOutlined />,
+    block: () => ({
+      type: 'TextTemplate',
+      data: {
+        props: { text: 'My new **template** text block', markdown: true },
+        style: {
+          padding: { top: 16, bottom: 16, left: 24, right: 24 },
+          fontWeight: 'normal',
+        },
+      },
+    }),
+  },
   {
     label: 'Button',
     icon: <SmartButtonOutlined />,

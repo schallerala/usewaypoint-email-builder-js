@@ -21,6 +21,12 @@ import { ContainerPropsSchema } from '../blocks/Container/ContainerPropsSchema';
 import ContainerReader from '../blocks/Container/ContainerReader';
 import { EmailLayoutPropsSchema } from '../blocks/EmailLayout/EmailLayoutPropsSchema';
 import EmailLayoutReader from '../blocks/EmailLayout/EmailLayoutReader';
+import {
+  TemplateDataProvider,
+  TextTemplate,
+  TextTemplatePropsSchema,
+  type TemplateDataProviderProps,
+} from '@usewaypoint/block-text-template';
 
 const ReaderContext = createContext<TReaderDocument>({});
 
@@ -74,6 +80,10 @@ const READER_DICTIONARY = buildBlockConfigurationDictionary({
     schema: TextPropsSchema,
     Component: Text,
   },
+  TextTemplate: {
+    schema: TextTemplatePropsSchema,
+    Component: TextTemplate,
+  },
 });
 
 export const ReaderBlockSchema = buildBlockConfigurationSchema(READER_DICTIONARY);
@@ -93,11 +103,13 @@ export function ReaderBlock({ id }: TReaderBlockProps) {
 export type TReaderProps = {
   document: Record<string, z.infer<typeof ReaderBlockSchema>>;
   rootBlockId: string;
-};
-export default function Reader({ document, rootBlockId }: TReaderProps) {
+} & Omit<TemplateDataProviderProps, 'children'>;
+export default function Reader({ document, rootBlockId, ...templateDataProps }: TReaderProps) {
   return (
     <ReaderContext.Provider value={document}>
-      <ReaderBlock id={rootBlockId} />
+      <TemplateDataProvider {...templateDataProps}>
+        <ReaderBlock id={rootBlockId} />
+      </TemplateDataProvider>
     </ReaderContext.Provider>
   );
 }

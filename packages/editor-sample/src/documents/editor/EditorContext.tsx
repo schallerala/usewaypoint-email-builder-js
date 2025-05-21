@@ -1,5 +1,7 @@
 import { create } from 'zustand';
 
+import { type TemplateDataContextType } from '@usewaypoint/block-text-template';
+
 import getConfiguration from '../../getConfiguration';
 
 import { TEditorConfiguration } from './core';
@@ -8,9 +10,11 @@ type TValue = {
   document: TEditorConfiguration;
 
   selectedBlockId: string | null;
-  selectedSidebarTab: 'block-configuration' | 'styles';
+  selectedSidebarTab: 'block-configuration' | 'styles' | 'template-data';
   selectedMainTab: 'editor' | 'preview' | 'json' | 'html';
   selectedScreenSize: 'desktop' | 'mobile';
+
+  templateData: TemplateDataContextType['scope'];
 
   inspectorDrawerOpen: boolean;
   samplesDrawerOpen: boolean;
@@ -22,6 +26,8 @@ const editorStateStore = create<TValue>(() => ({
   selectedSidebarTab: 'styles',
   selectedMainTab: 'editor',
   selectedScreenSize: 'desktop',
+
+  templateData: {},
 
   inspectorDrawerOpen: true,
   samplesDrawerOpen: true,
@@ -37,6 +43,10 @@ export function useSelectedBlockId() {
 
 export function useSelectedScreenSize() {
   return editorStateStore((s) => s.selectedScreenSize);
+}
+
+export function useTemplateData() {
+  return editorStateStore((s) => s.templateData);
 }
 
 export function useSelectedMainTab() {
@@ -106,4 +116,8 @@ export function toggleSamplesDrawerOpen() {
 
 export function setSelectedScreenSize(selectedScreenSize: TValue['selectedScreenSize']) {
   return editorStateStore.setState({ selectedScreenSize });
+}
+
+export function setTemplateData(templateData: TemplateDataContextType['scope']) {
+  return editorStateStore.setState({ templateData });
 }

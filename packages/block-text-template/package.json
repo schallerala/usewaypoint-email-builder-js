@@ -1,0 +1,29 @@
+{
+  "name": "@usewaypoint/block-text-template",
+  "version": "0.0.1",
+  "description": "@usewaypoint/document compatible Text Template component with Liquid.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "check-types": "tsc --noEmit"
+  },
+  "author": "Alain Schaller <schallerala@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16 || ^17 || ^18 || ^19",
+    "zod": "^1 || ^2 || ^3"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.0",
+    "tsup": "^8.5.0"
+  },
+  "dependencies": {
+    "@usewaypoint/block-text": "workspace:*",
+    "liquidjs": "^10.21.1"
+  }
+}

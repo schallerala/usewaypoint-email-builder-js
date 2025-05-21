@@ -7,6 +7,7 @@ import {
 } from '@mui/icons-material';
 import { Stack, ToggleButton } from '@mui/material';
 import { ImageProps, ImagePropsSchema } from '@usewaypoint/block-image';
+import { type ZodError } from 'zod';
 
 import BaseSidebarPanel from './helpers/BaseSidebarPanel';
 import RadioGroupInput from './helpers/inputs/RadioGroupInput';
@@ -19,7 +20,7 @@ type ImageSidebarPanelProps = {
   setData: (v: ImageProps) => void;
 };
 export default function ImageSidebarPanel({ data, setData }: ImageSidebarPanelProps) {
-  const [, setErrors] = useState<Zod.ZodError | null>(null);
+  const [, setErrors] = useState<ZodError | null>(null);
 
   const updateData = (d: unknown) => {
     const res = ImagePropsSchema.safeParse(d);

@@ -22,6 +22,7 @@ import ContainerPropsSchema from '../blocks/Container/ContainerPropsSchema';
 import EmailLayoutEditor from '../blocks/EmailLayout/EmailLayoutEditor';
 import EmailLayoutPropsSchema from '../blocks/EmailLayout/EmailLayoutPropsSchema';
 import EditorBlockWrapper from '../blocks/helpers/block-wrappers/EditorBlockWrapper';
+import { TextTemplate, TextTemplatePropsSchema } from '@usewaypoint/block-text-template';
 
 const EDITOR_DICTIONARY = buildBlockConfigurationDictionary({
   Avatar: {
@@ -94,6 +95,14 @@ const EDITOR_DICTIONARY = buildBlockConfigurationDictionary({
     Component: (props) => (
       <EditorBlockWrapper>
         <Text {...props} />
+      </EditorBlockWrapper>
+    ),
+  },
+  TextTemplate: {
+    schema: TextTemplatePropsSchema,
+    Component: (props) => (
+      <EditorBlockWrapper>
+        <TextTemplate {...props} />
       </EditorBlockWrapper>
     ),
   },

@@ -10,6 +10,7 @@ import {
   useDocument,
   useSelectedMainTab,
   useSelectedScreenSize,
+  useTemplateData,
 } from '../../documents/editor/EditorContext';
 import ToggleInspectorPanelButton from '../InspectorDrawer/ToggleInspectorPanelButton';
 import ToggleSamplesPanelButton from '../SamplesDrawer/ToggleSamplesPanelButton';
@@ -20,11 +21,13 @@ import ImportJson from './ImportJson';
 import JsonPanel from './JsonPanel';
 import MainTabsGroup from './MainTabsGroup';
 import ShareButton from './ShareButton';
+import { TemplateDataProvider } from '@usewaypoint/block-text-template';
 
 export default function TemplatePanel() {
   const document = useDocument();
   const selectedMainTab = useSelectedMainTab();
   const selectedScreenSize = useSelectedScreenSize();
+  const templateData = useTemplateData();
 
   let mainBoxSx: SxProps = {
     height: '100%',
@@ -56,13 +59,15 @@ export default function TemplatePanel() {
       case 'editor':
         return (
           <Box sx={mainBoxSx}>
-            <EditorBlock id="root" />
+            <TemplateDataProvider templateScope={templateData}>
+              <EditorBlock id="root" />
+            </TemplateDataProvider>
           </Box>
         );
       case 'preview':
         return (
           <Box sx={mainBoxSx}>
-            <Reader document={document} rootBlockId="root" />
+            <Reader document={document} rootBlockId="root" templateScope={templateData} />
           </Box>
         );
       case 'html':
