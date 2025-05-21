@@ -8,27 +8,34 @@
     "dist"
   ],
   "scripts": {
-    "build": "npx tsc",
+    "build": "turbo build",
+    "check-types": "turbo check-types",
     "test": "npx jest"
   },
   "author": "carlos@usewaypoint.com",
   "license": "MIT",
   "devDependencies": {
     "@jest/globals": "^29.7.0",
-    "@testing-library/react": "^14.2.1",
-    "@types/jest": "^29.5.12",
+    "@testing-library/react": "^16.3.0",
+    "@types/jest": "^29.5.14",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^11.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
-    "prettier": "^3.2.5",
-    "react-test-renderer": "^18.2.0",
-    "ts-jest": "^29.1.2",
+    "prettier": "^3.5.3",
+    "react-test-renderer": "^19.1.0",
+    "ts-jest": "^29.3.4",
     "ts-node": "^10.9.2",
-    "tsup": "^8.0.2",
-    "typescript": "^5.3.3",
-    "zod": "^3.22.4"
-  }
+    "tsup": "^8.5.0",
+    "turbo": "^2.5.3",
+    "typescript": "^5.8.3",
+    "zod": "^3.25.17"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "packageManager": "pnpm@10.11.0+sha512.6540583f41cc5f628eb3d9773ecee802f4f9ef9923cc45b69890fb47991d4b092964694ec3a4f738a420c918a333062c8b925d312f42e4f0c263eb603551f977"
 }

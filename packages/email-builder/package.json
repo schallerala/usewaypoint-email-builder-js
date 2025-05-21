@@ -5,37 +5,34 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "npx tsc"
+    "build": "tsup",
+    "check-types": "tsc --noEmit"
   },
   "author": "carlos@usewaypoint.com",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16 || ^17 || ^18",
-    "react-dom": "^16 || ^17 || ^18",
+    "react": "^16 || ^17 || ^18 || ^19",
+    "react-dom": "^16 || ^17 || ^18 || ^19",
     "zod": "^1 || ^2 || ^3"
   },
   "dependencies": {
-    "@usewaypoint/block-avatar": "^0.0.3",
-    "@usewaypoint/block-button": "^0.0.3",
-    "@usewaypoint/block-columns-container": "^0.0.3",
-    "@usewaypoint/block-container": "^0.0.2",
-    "@usewaypoint/block-divider": "^0.0.4",
-    "@usewaypoint/block-heading": "^0.0.3",
-    "@usewaypoint/block-html": "^0.0.3",
-    "@usewaypoint/block-image": "^0.0.5",
-    "@usewaypoint/block-spacer": "^0.0.3",
-    "@usewaypoint/block-text": "^0.0.6",
-    "@usewaypoint/document-core": "^0.0.6"
+    "@usewaypoint/block-avatar": "workspace:*",
+    "@usewaypoint/block-button": "workspace:*",
+    "@usewaypoint/block-columns-container": "workspace:*",
+    "@usewaypoint/block-container": "workspace:*",
+    "@usewaypoint/block-divider": "workspace:*",
+    "@usewaypoint/block-heading": "workspace:*",
+    "@usewaypoint/block-html": "workspace:*",
+    "@usewaypoint/block-image": "workspace:*",
+    "@usewaypoint/block-spacer": "workspace:*",
+    "@usewaypoint/block-text": "workspace:*",
+    "@usewaypoint/document-core": "workspace:*"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0"
   }
 }

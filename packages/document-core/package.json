@@ -5,23 +5,20 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
-  },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "npx tsc"
+    "build": "tsup",
+    "check-types": "tsc --noEmit"
   },
   "author": "carlos@usewaypoint.com",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16 || ^17 || ^18",
+    "react": "^16 || ^17 || ^18 || ^19",
     "zod": "^1 || ^2 || ^3"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0"
   }
 }
