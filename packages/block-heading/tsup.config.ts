@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup'
+import { defineConfig } from 'tsup';
 
 export default defineConfig({
   entry: ['src/index.tsx'],
@@ -7,4 +7,4 @@ export default defineConfig({
   dts: true,
   sourcemap: true,
   clean: true,
-})
+});

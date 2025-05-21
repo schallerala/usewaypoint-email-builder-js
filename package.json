@@ -10,6 +10,7 @@
   "scripts": {
     "build": "turbo build",
     "check-types": "turbo check-types",
+    "format": "prettier --write '**/*.{json,ts,tsx,md,html}'",
     "test": "npx jest"
   },
   "author": "carlos@usewaypoint.com",
